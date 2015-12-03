@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <title>Головна сторінка</title>
+
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+      #loading_animation {
+        width: 140px;
+        height: 150px;
+        border: 1px solid black;
+        background-color: white;
+        opacity: 0.5;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var N = 8;
+        var loading_animation_div = document.getElementById('loading_animation');
+        loading_animation_div.style.position = 'relative';
+        var bounRect = loading_animation_div.getBoundingClientRect();
+        var size = Math.min(+bounRect.width,
+                            +bounRect.height);
+        var circles = [];
+        for (var ang = 0; ang < Math.PI*2; ang += Math.PI*2/N) {
+          var circle = document.createElement('div');
+          circles.push(circle);
+          circle.style.width = '10px';
+          circle.style.height = '10px';
+          circle.style.backgroundColor = 'red';
+          circle.style.position = 'absolute';
+          circle.style.left = Math.round(size/2*(1+0.2*Math.cos(ang))-5)+'px';
+          circle.style.top = Math.round(size/2*(1+0.2*Math.sin(ang))-5)+'px';
+          circle.style.borderRadius = circle.style.width;
+          loading_animation_div.appendChild(circle);
+        }
+        var cos10 = Math.cos(Math.PI/18);
+        var sin10 = Math.sin(Math.PI/18);
+        var animationTimer = setInterval(function() {
+          // console.log(circles[0]);
+          for (var i in circles) {
+            var x = parseInt(circles[i].style.left) - size/2;
+            var y = parseInt(circles[i].style.top) - size/2;
+            var nx = size/2 + x*cos10 - y*sin10;
+            var ny = size/2 + x*sin10 + y*cos10;
+            circles[i].style.left = Math.round(nx)+'px';
+            circles[i].style.top = Math.round(ny)+'px';
+
+          }
+        }, 33);
+        setTimeout(function() {
+          clearInterval(animationTimer);
+          loading_animation_div.innerHTML = '';
+          var img = document.createElement('img');
+          img.src = 'img/map.png';
+          img.style.width = size-2+'px';
+          loading_animation_div.appendChild(img);
+          loading_animation_div.style.height = img.getBoundingClientRect().height+2+'px';
+
+        }, 5000);
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <p>Сайт тролейбусного депо</p>
+        </div>
+    </header>
+    <main>
+      <div class="main">
+        <form>
+          <div class="form-group">
+            <p>Оберіть степінь важкості поломки</p>
+            <select>
+              <option>Легка</option>
+              <option>Середня</option>
+              <option>Важка</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <p>Введіть причину поломки</p>
+            <textarea placeholder="Опишіть проблему"></textarea>
+          </div>
+          <div class="form-group">
+            <p>Ваше географічне положення</p>
+            <div id="loading_animation">
+
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Повідомити про поломку" />
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <p>@ Сайт тролейбусного депо</p>
+        </div>
+    </footer>
+</body>
+</html>
