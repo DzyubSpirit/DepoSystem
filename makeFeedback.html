@@ -6,12 +6,10 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="bootstrap-3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style/style.css" />
     <title>Реєстрація</title>
     <style>
-        * {    
+        * {
             padding: 0 ;
             margin: 0 ;
 
@@ -59,6 +57,16 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+      window.onload = function() {
+        var subButton = document.getElementById("submitButton");
+        var textArea = document.getElementById("textArea");
+        subButton.onclick = function() {
+          if (textArea.value === '') return;
+          alert('Ваша скарга зареєстрована');
+        }
+      }
+    </script>
 </head>
 <body>
 <header>
@@ -66,9 +74,34 @@
         <p>Сайт тролейбусного депо</p>
     </div>
 </header>
-<form>
-<div class="form-group">
-    <div>Скарга</div>
-    <textarea placeholder="Опишіть вашу проблему"></textarea>
+<main>
+<div class="main">
+  <form>
+    <div class="form-group">
+        <p>Скарга</p>
+        <textarea id="textArea" placeholder="Опишіть вашу проблему" required></textarea>
+    </div>
+    <div class="form-group">
+        <p>Електронна пошта *</p>
+        <input type="text" placeholder="Dzyubavlad2@gmail.com"/>
+    </div>
+    <div class="form-group">
+        <p>Телефон *</p>
+        <input type="text" placeholder="(+38) 095-234-32-54" />
+    </div>
+    <div class="form-group">
+      <input id="submitButton" type="submit" value="Подати скаргу" />
+    </div>
+    <div>
+      <a href="personal_cabinet.html">Повернутись до кабінету</a>
+    </div>
+  </form>
 </div>
-</form>
+</main>
+<footer>
+    <div class="footer">
+        <p>@ Сайт тролейбусного депо</p>
+    </div>
+</footer>
+</body>
+</html>
