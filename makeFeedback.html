@@ -9,7 +9,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="bootstrap-3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <title>Авторизація</title>
+    <title>Реєстрація</title>
     <style>
         * {    
             padding: 0 ;
@@ -59,26 +59,6 @@
             margin-top: 20px;
         }
     </style>
-    <style>
-      form {
-        width: 400px;
-        margin: auto;
-      }
-      form div {
-        font-style: bold;
-        font-size: 15px;
-      }
-    </style>
-    <script>
-    window.onload = function() {
-        var registerButton = document.getElementById('registerButton');
-
-        registerButton.onclick = function() {
-            window.location = 'register.html';
-            alert(0);
-        }
-    }
-    </script>
 </head>
 <body>
 <header>
@@ -87,16 +67,8 @@
     </div>
 </header>
 <form>
-    <div class="form-group">
-    <div>Логін:</div>
-    <input type="input" placeholder="Ivanko" /> </div><br />
-    <div class="form-group">
-    <div>Пароль:</div>
-    <input type="password" placeholder="14262Begs" /> </div><br />
-    <div class="form-group">    
-    <input class="btn btn-default" type="submit" value="Війти" />
-    <button id="registerButton" class="btn btn-default">Зареєструватись</button>
-    </div>
+<div class="form-group">
+    <div>Скарга</div>
+    <textarea placeholder="Опишіть вашу проблему"></textarea>
+</div>
 </form>
-</body>
-</html>
