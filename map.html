@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8"> 
+
     <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -9,18 +10,21 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="bootstrap-3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <title>Авторизація</title>
-    <link rel="stylesheet" href="style/style.css">
+    <title>Мапа</title>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
-        window.onload = function() {
-            var registerButton = document.getElementById('registerButton');
-
-            registerButton.onclick = function() {
-                window.location = 'register.html';
-                alert(0);
-            }
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(50.4509502, 30.4651199),
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
         }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <header>
@@ -33,18 +37,8 @@
             <p><a href="index.html">Головна</a></p>
         </div>
         <div class="main">
-            <form>
-                <div class="form-group">
-                <div>Логін:</div>
-                <input type="input" placeholder="Ivanko" /> </div><br />
-                <div class="form-group">
-                <div>Пароль:</div>
-                <input type="password" placeholder="14262Begs" /> </div><br />
-                <div class="form-group">    
-                <input class="btn btn-default" type="submit" value="Війти" />
-                <button id="registerButton" class="btn btn-default">Зареєструватись</button>
-                </div>
-            </form>
+            <p>Мапа:</p>
+            <div id="map"></div>
         </div>
     </main>
     <footer>
