@@ -9,6 +9,32 @@
 
     <link rel="stylesheet" href="style/style.css">
     <title>Особистий кабінет</title>
+    <style>
+      .invisible {
+        display: none;
+      }
+    </style>
+    <script>
+      function makeVisibleClass(className) {
+        var lies = document.getElementsByClassName(className);
+        for (var i = 0; i < lies.length; i++) {
+          var el = lies[i];
+          el.classList.remove('invisible');
+        }
+      }
+
+      window.onload = function() {
+        if (window.location.hash === '') {
+          makeVisibleClass('forUzvers');
+        }
+        if (window.location.hash.indexOf('#driver') !== -1) {
+          makeVisibleClass('forDrivers');
+        }
+        if (window.location.hash.indexOf('#admin') !== -1) {
+          makeVisibleClass('forGods');
+        }
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -24,9 +50,9 @@
             <!-- <p>Сайт тролейбусного депо</p>
             <p><a href="map.html">Мапа</a></p> -->
             <ul>
-              <li><a href="makeFeedback.html">Написати скаргу</a></li>
-              <li><a href="crash_report.html">Повідомити про поломку</a></li>
-              
+              <li class="forUzvers invisible"><a href="makeFeedback.html">Написати скаргу</a></li>
+              <li class="forDrivers invisible"><a href="crash_report.html">Повідомити про поломку</a></li>
+              <li class="forDrivers invisible"><a href="driver_path.html">Отримати путьовий білет</a></li>
             </ul>
         </div>
     </main>
