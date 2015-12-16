@@ -28,7 +28,7 @@
                 console.log(login);
                 console.log(password);
                 if (login === 'user@gmail.com') {
-                  if (password === 'user_password') {
+                  if (password === 'user') {
                     location = 'personal_cabinet.html';
                   } else {
                     formMessage.style.opacity = '1';
@@ -36,7 +36,7 @@
                     setTimeout(fadeElem,33, formMessage);
                   }
                 } else if (login === 'driver@gmail.com') {
-                  if (password === 'driver_password') {
+                  if (password === 'driver') {
                     location = 'personal_cabinet.html#driver';
                   } else {
                     formMessage.style.opacity = '1';
@@ -44,7 +44,7 @@
                     setTimeout(fadeElem,33, formMessage);
                   }
                 } else if (login === 'admin@gmail.com') {
-                  if (password === 'admin_password') {
+                  if (password === 'admin') {
                     location = 'personal_cabinet.html#admin';
                   } else {
                     formMessage.style.opacity = '1';
@@ -91,7 +91,7 @@
                 <input name="password" type="password" placeholder="14262Begs" /> </div>
                 <div id="formMessage" >123 </div><br />
             </form>
-            <button id="loginButton" class="btn btn-default"> Війти </button>
+            <button id="loginButton" class="btn btn-default"> Увійти </button>
             <a href="register.html"><button class="btn btn-default">Зареєструватись</button></a>
         </div>
     </main>
