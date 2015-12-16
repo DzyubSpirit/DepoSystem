@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <title>Головна сторінка</title>
+
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+      td, th {
+        border: 1px solid black;
+      }
+
+      td:last-child {
+        border: 3px solid red;
+      }
+
+      td:last-child img {
+        width: 25px
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var images = document.getElementsByTagName('img');
+        for (var i = 0; i < images.length; i++) {
+          if (images[i].src.indexOf('img/delete.png') === -1) continue;
+          images[i].onclick = function() {
+            this.parentElement.parentElement.remove();
+          }
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <p>Сайт тролейбусного депо</p>
+        </div>
+    </header>
+    <main>
+      <div class="suggest_login">
+        <p><a href="index.html">Вийти</a> з акаунту</p>
+      </div>
+      <div class="main">
+        <table>
+          <tr>
+            <th>Зупинка</th>
+            <th>Статус</th>
+          </tr>
+          <tr>
+            <td>ул. Академика Булаховского</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Подлесная</td>
+            <td>Неактивна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>Институт моделирования</td>
+            <td>На ремонті</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Дымерская</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Генерала Наумова</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>Нефтяник</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ст.м. Академгородок</td>
+            <td>На ремонті</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Ирпенская</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>просп. Победы (Кольцевая дорога)</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Верховинная</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Янтарная</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ул. Жмеринская (Кольцевая дорога)</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>Завод "Электронмаш"</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>просп. 50-летия Октября (Кольцевая дорога)</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>Кольцевая дорога (50-летия Октября)</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>бульв. Кольцова (мт)</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>Школа №131</td>
+            <td>Активна</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+
+        </table>
+      </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <p>@ Сайт тролейбусного депо</p>
+        </div>
+    </footer>
+</body>
+</html>

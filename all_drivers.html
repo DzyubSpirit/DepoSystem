@@ -11,6 +11,11 @@
     <title>Головна сторінка</title>
 
     <link rel="stylesheet" href="style/style.css">
+    <style>
+      table, td, th {
+        border: 1px solid black;
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -23,10 +28,29 @@
         <p><a href="index.html">Вийти</a> з акаунту</p>
       </div>
       <div class="main">
-        <p>Ваша поломка зареєстрована</p>
-        <p>Найближча ремонтна станція на вул. Борщагівська 42</p>
+        <table>
+          <tr>
+            <th>Водій</th>
+            <th>Час виходу на роботу</th>
+            <th>Час виходу з роботи</th>
+            <th>Путьовий білет</th>
+          </tr>
+          <tr>
+            <td>Лук'яненко Василь Андрійович</td>
+            <td>10:35</td>
+            <td>??:??</td>
+            <td><a href="driver_path_example.html" target="_blank">Посилання</a></td>
+          </tr>
+          <tr>
+            <td>Беззазнайко Валерій Вєніамінович</td>
+            <td>8:10</td>
+            <td>16:40</td>
+            <td><a href="driver_path_example.html" target="_blank">Посилання</a></td>
+          </tr>
+        </table>
+        <p>??:?? - означає, що водій ще не завершив роботу</p>
         <div>
-          <a href="personal_cabinet.html#driver">Повернутись до кабінету</a>
+          <a href="personal_cabinet.html#admin">Повернутись до кабінету</a>
         </div>
       </div>
     </main>

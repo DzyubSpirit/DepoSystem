@@ -1,4 +1,4 @@
-* {    
+* {
     padding: 0 ;
     margin: 0 ;
 
@@ -54,7 +54,7 @@ main {
     border: 10px solid rgb(50, 50, 100);
     border-bottom: none;
     background: rgb(200, 200, 200);
-    height: 20px;
+    height: 60px;
     width: 860px;
     color: black;
     text-align: left;
@@ -74,7 +74,7 @@ main {
     padding: 30px 50px 30px 50px;
 }
 .main form {
-    display: inline-block;
+    display: inline;
     text-align: left;
 }
 .register {
@@ -104,4 +104,16 @@ footer {
 }
 .footer p {
     margin-top: 15px;
+}
+
+.pathBilet {
+  border: 1px solid black;
+}
+
+.pathBilet > h1 {
+  text-align: center;
+}
+
+.pathBilet > ol {
+  padding-left: 50px;
 }

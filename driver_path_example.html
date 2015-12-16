@@ -11,20 +11,6 @@
     <title>Головна сторінка</title>
 
     <link rel="stylesheet" href="style/style.css">
-    <script>
-      window.onload = function() {
-        function inTime(str) {
-          if (+str < 10) {
-            return '0'+str;
-          }
-          return str;
-        }
-
-        var time = new Date();
-        var timeToWorkDiv = document.getElementById("timeToWorkDiv");
-        timeToWorkDiv.innerHTML += inTime(time.getHours())+':'+inTime(time.getMinutes());
-      }
-    </script>
 </head>
 <body>
     <header>
@@ -37,9 +23,6 @@
         <p><a href="index.html">Вийти</a> з акаунту</p>
       </div>
       <div class="main">
-        <p id="timeToWorkDiv"> Час виходу на роботу: </p>
-        <p>Ваш тролейбус: ЕА 1252</p>
-        <p><a target="_blank" href="img\pathBilet.png">Роздрукувати путьовий білет</a></p>
         <div class="pathBilet">
           <h1>Путьовий білет:</h1>
           <ol>
@@ -61,9 +44,6 @@
             <li>бульв. Кольцова (мт)</li>
             <li>Школа №131</li>
           </ol>
-        </div>
-        <div>
-          <a href="personal_cabinet.html#driver">Повернутись до кабінету</a>
         </div>
       </div>
     </main>

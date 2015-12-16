@@ -11,6 +11,11 @@
     <title>Головна сторінка</title>
 
     <link rel="stylesheet" href="style/style.css">
+    <style>
+      table, td, th {
+        border: 1px solid black;
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -23,7 +28,27 @@
         <p><a href="index.html">Вийти</a> з акаунту</p>
       </div>
       <div class="main">
-
+        <table>
+          <tr>
+            <th>Номер тролейбусу</th>
+            <th>Час поломки</th>
+            <th>Місцеположення поломки</th>
+            <th>Важкість поломки</th>
+            <th>Адреса ремонтної бригади</th>
+            <th>Опис поломки</th>
+          </tr>
+          <tr>
+            <td>АУ 5122</td>
+            <td>14:05</td>
+            <td>пр. Перемоги 44</td>
+            <td>Легка</td>
+            <td>вул. Борщагівська 42</td>
+            <td>Двері не в стані повністю закритись</td>
+          </tr>
+        </table>
+        <div>
+          <a href="personal_cabinet.html#admin">Повернутись до кабінету</a>
+        </div>
       </div>
     </main>
     <footer>
