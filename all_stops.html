@@ -12,11 +12,34 @@
 
     <link rel="stylesheet" href="style/style.css">
     <style>
-      td, th {
-        border: 1px solid black;
+      #addImg {
+        margin: 10px;
+        width: 70px;
+        border: 3px solid black;
       }
 
-      td:last-child {
+      #addImg:hover {
+        border: 3px solid green;
+      }
+
+      td, th {
+        border: 2px solid black;
+      }
+
+      td:first-child {
+        width: 350px;
+      }
+
+     td:last-child {
+        padding: 0px;
+        border: 3px solid black;
+      }
+
+      td:first-child:hover {
+        border: 2px solid green;
+      }
+
+      td:last-child:hover {
         border: 3px solid red;
       }
 
@@ -26,12 +49,41 @@
     </style>
     <script>
       window.onload = function() {
+        var addImg = document.getElementById("addImg");
+        var stopTable = document.getElementById("stopTable");
+        addImg.onclick = function() {
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          td.innerHTML = 'Назва зупинки';
+          td.onclick = function() {
+            convertToInput(this);
+          }
+          tr.appendChild(td);
+          td = document.createElement('td');
+          td.innerHTML = '0';
+          convertToStopStatusSelect(td);
+          tr.appendChild(td);
+          td = document.createElement('td');
+          var img = document.createElement('img');
+          img.src = 'img/delete.png';
+          td.appendChild(img);
+          convertToDeleteImg(img);
+          tr.appendChild(td);
+
+          stopTable.appendChild(tr);
+        }
+
+        function convertToDeleteImg(elem) {
+          elem.onclick = function() {
+            this.parentElement.parentElement.remove();
+          }
+        }
+
         var images = document.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
           if (images[i].src.indexOf('img/delete.png') === -1) continue;
-          images[i].onclick = function() {
-            this.parentElement.parentElement.remove();
-          }
+
+          convertToDeleteImg(images[i]);
         }
 
         function convertToStopStatusSelect(elem) {
@@ -76,7 +128,7 @@
         var stopNameTdes = document.querySelectorAll('.main > table td:first-child');
         [].forEach.call(stopNameTdes, function(item) {
           item.onclick = function () {
-            console.log(1);
+            // console.log(1);
             convertToInput(this);
           };
         });
@@ -94,7 +146,7 @@
         <p><a href="index.html">Вийти</a> з акаунту</p>
       </div>
       <div class="main">
-        <table>
+        <table id="stopTable">
           <tr>
             <th>Зупинка</th>
             <th>Статус</th>
@@ -146,12 +198,12 @@
           </tr>
           <tr>
             <td>ул. Верховинная</td>
-            <td>0</td>
+            <td>1</td>
             <td><img src="img\delete.png" /> </td>
           </tr>
           <tr>
             <td>ул. Янтарная</td>
-            <td>0</td>
+            <td>1</td>
             <td><img src="img\delete.png" /> </td>
           </tr>
           <tr>
@@ -161,12 +213,12 @@
           </tr>
           <tr>
             <td>Завод "Электронмаш"</td>
-            <td>0</td>
+            <td>2</td>
             <td><img src="img\delete.png" /> </td>
           </tr>
           <tr>
             <td>просп. 50-летия Октября (Кольцевая дорога)</td>
-            <td>0</td>
+            <td>1</td>
             <td><img src="img\delete.png" /> </td>
           </tr>
           <tr>
@@ -186,6 +238,10 @@
           </tr>
 
         </table>
+        <img id="addImg" src="img\add.png" />
+        <div>
+          <a href="personal_cabinet.html#admin">Повернутись до кабінету</a>
+        </div>
       </div>
     </main>
     <footer>
