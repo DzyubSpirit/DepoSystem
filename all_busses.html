@@ -11,129 +11,12 @@
     <title>Головна сторінка</title>
 
     <link rel="stylesheet" href="style/style.css">
-    <style>
-      #addImg {
-        margin: 10px;
-        width: 70px;
-        border: 3px solid black;
-      }
-
-      #addImg:hover {
-        border: 3px solid green;
-      }
-
-      td, th {
-        border: 2px solid black;
-      }
-
-     td:last-child {
-        padding: 0px;
-        border: 3px solid black;
-      }
-
-      td:first-child {
-        width: 350px;
-      }
-
-      td:first-child:hover {
-        border: 2px solid green;
-      }
-
-      td:last-child:hover {
-        border: 3px solid red;
-      }
-
-      td:last-child img {
-        width: 25px
-      }
-    </style>
+    <link rel="stylesheet" href="style/tablePages.css" />
     <script>
-      window.onload = function() {
-        var addImg = document.getElementById("addImg");
-        var stopTable = document.getElementById("stopTable");
-        addImg.onclick = function() {
-          var tr = document.createElement('tr');
-          var td = document.createElement('td');
-          td.innerHTML = 'Номер тролейбуса';
-          td.onclick = function() {
-            convertToInput(this);
-          }
-          tr.appendChild(td);
-          td = document.createElement('td');
-          td.innerHTML = '0';
-          convertToStopStatusSelect(td);
-          tr.appendChild(td);
-          td = document.createElement('td');
-          var img = document.createElement('img');
-          img.src = 'img/delete.png';
-          td.appendChild(img);
-          convertToDeleteImg(img);
-          tr.appendChild(td);
-
-          stopTable.appendChild(tr);
-        }
-
-        function convertToDeleteImg(elem) {
-          elem.onclick = function() {
-            this.parentElement.parentElement.remove();
-          }
-        }
-
-        var images = document.getElementsByTagName('img');
-        for (var i = 0; i < images.length; i++) {
-          if (images[i].src.indexOf('img/delete.png') === -1) continue;
-
-          convertToDeleteImg(images[i]);
-        }
-
-        function convertToStopStatusSelect(elem) {
-          var select = document.createElement('select');
-          for (var j = 0; j < optionTexts.length; j++) {
-            var option = document.createElement('option');
-            option.innerHTML = optionTexts[j];
-            select.appendChild(option);
-          }
-          select.selectedIndex = elem.innerHTML;
-          elem.innerHTML = '';
-          elem.appendChild(select);
-        }
-
-        var stopStatuses = document.querySelectorAll('.main > table td:nth-child(2)');
-        var optionTexts = ["В роботі", "На стоянці", "На ремонті"];
-        [].forEach.call(stopStatuses, convertToStopStatusSelect);
-
-        function convertToInput(elem) {
-          if (elem.children.length > 0) {
-            return;
-          }
-          var input = document.createElement('input');
-          input.type = 'text';
-          input.value = elem.innerHTML;
-          input.onblur = function() {
-            this.parentElement.innerHTML = this.value;
-          };
-          elem.innerHTML = '';
-          elem.appendChild(input);
-          input.focus();
-          input.select();
-        }
-
-        function convertToText(elem) {
-          if (elem.children.length == 0) {
-            return;
-          }
-          elem.innerHTML = elem.children[0].value;
-        }
-
-        var stopNameTdes = document.querySelectorAll('.main > table td:first-child');
-        [].forEach.call(stopNameTdes, function(item) {
-          item.onclick = function () {
-            // console.log(1);
-            convertToInput(this);
-          };
-        });
-      }
+      var default_text = 'Номер тролейбуса';
+      var optionTexts = ["В роботі", "На стоянці", "На ремонті"];
     </script>
+    <script src="script/tablePages.js"></script>
 </head>
 <body>
     <header>
@@ -240,7 +123,7 @@
         </table>
         <img id="addImg" src="img\add.png" />
         <div>
-          <a href="personal_cabinet.html#admin">Повернутись до кабінету</a>
+          <a href="personal_cabinet.html#manager">Повернутись до кабінету</a>
         </div>
       </div>
     </main>

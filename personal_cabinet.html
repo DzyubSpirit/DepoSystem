@@ -30,8 +30,11 @@
         if (window.location.hash.indexOf('#driver') !== -1) {
           makeVisibleClass('forDrivers');
         }
-        if (window.location.hash.indexOf('#admin') !== -1) {
+        if (window.location.hash.indexOf('#manager') !== -1) {
           makeVisibleClass('forGods');
+        }
+        if (window.location.hash.indexOf('#admin') !== -1) {
+          makeVisibleClass('forTrueGods');
         }
       }
     </script>
@@ -58,6 +61,7 @@
             <li class="forGods invisible"><a href="all_crashes.html">Поломки тролейбусів</a></li>
             <li class="forGods invisible"><a href="all_stops.html">Робота з зупинками</a></li>
             <li class="forGods invisible"><a href="all_busses.html">Робота з тролейбусами</a></li>
+            <li class="forTrueGods invisible"><a href="beAGodPage.html"> Зміна статусів та видалення акаунтів </a></li>
             <li><a href="map.html">Мапа</a></li>
           </ul>
       </div>
