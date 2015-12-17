@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <title>Головна сторінка</title>
+
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+      #addImg {
+        margin: 10px;
+        width: 70px;
+        border: 3px solid black;
+      }
+
+      #addImg:hover {
+        border: 3px solid green;
+      }
+
+      td, th {
+        border: 2px solid black;
+      }
+
+     td:last-child {
+        padding: 0px;
+        border: 3px solid black;
+      }
+
+      td:first-child {
+        width: 350px;
+      }
+
+      td:first-child:hover {
+        border: 2px solid green;
+      }
+
+      td:last-child:hover {
+        border: 3px solid red;
+      }
+
+      td:last-child img {
+        width: 25px
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var addImg = document.getElementById("addImg");
+        var stopTable = document.getElementById("stopTable");
+        addImg.onclick = function() {
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          td.innerHTML = 'Номер тролейбуса';
+          td.onclick = function() {
+            convertToInput(this);
+          }
+          tr.appendChild(td);
+          td = document.createElement('td');
+          td.innerHTML = '0';
+          convertToStopStatusSelect(td);
+          tr.appendChild(td);
+          td = document.createElement('td');
+          var img = document.createElement('img');
+          img.src = 'img/delete.png';
+          td.appendChild(img);
+          convertToDeleteImg(img);
+          tr.appendChild(td);
+
+          stopTable.appendChild(tr);
+        }
+
+        function convertToDeleteImg(elem) {
+          elem.onclick = function() {
+            this.parentElement.parentElement.remove();
+          }
+        }
+
+        var images = document.getElementsByTagName('img');
+        for (var i = 0; i < images.length; i++) {
+          if (images[i].src.indexOf('img/delete.png') === -1) continue;
+
+          convertToDeleteImg(images[i]);
+        }
+
+        function convertToStopStatusSelect(elem) {
+          var select = document.createElement('select');
+          for (var j = 0; j < optionTexts.length; j++) {
+            var option = document.createElement('option');
+            option.innerHTML = optionTexts[j];
+            select.appendChild(option);
+          }
+          select.selectedIndex = elem.innerHTML;
+          elem.innerHTML = '';
+          elem.appendChild(select);
+        }
+
+        var stopStatuses = document.querySelectorAll('.main > table td:nth-child(2)');
+        var optionTexts = ["В роботі", "На стоянці", "На ремонті"];
+        [].forEach.call(stopStatuses, convertToStopStatusSelect);
+
+        function convertToInput(elem) {
+          if (elem.children.length > 0) {
+            return;
+          }
+          var input = document.createElement('input');
+          input.type = 'text';
+          input.value = elem.innerHTML;
+          input.onblur = function() {
+            this.parentElement.innerHTML = this.value;
+          };
+          elem.innerHTML = '';
+          elem.appendChild(input);
+          input.focus();
+          input.select();
+        }
+
+        function convertToText(elem) {
+          if (elem.children.length == 0) {
+            return;
+          }
+          elem.innerHTML = elem.children[0].value;
+        }
+
+        var stopNameTdes = document.querySelectorAll('.main > table td:first-child');
+        [].forEach.call(stopNameTdes, function(item) {
+          item.onclick = function () {
+            // console.log(1);
+            convertToInput(this);
+          };
+        });
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <p>Сайт тролейбусного депо</p>
+        </div>
+    </header>
+    <main>
+      <div class="suggest_login">
+        <p><a href="index.html">Вийти</a> з акаунту</p>
+      </div>
+      <div class="main">
+        <table id="stopTable">
+          <tr>
+            <th>Номер тролейбуса</th>
+            <th>Статус</th>
+          </tr>
+          <tr>
+            <td>АВ 1523</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ИИ 6897</td>
+            <td>1</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ЯА 5786</td>
+            <td>2</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ВВ 2151</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ШИ 5221</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ЦЩ 1522</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ВС 5212</td>
+            <td>2</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>КА 5221</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ПА 5567</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>НО 2222</td>
+            <td>1</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>БА 1111</td>
+            <td>1</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ОЕ 6733</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ЛВ 2687</td>
+            <td>2</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ЗП 2178</td>
+            <td>1</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ЩЕ 5386</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ГР 1022</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+          <tr>
+            <td>ЗЗ 3333</td>
+            <td>0</td>
+            <td><img src="img\delete.png" /> </td>
+          </tr>
+
+        </table>
+        <img id="addImg" src="img\add.png" />
+        <div>
+          <a href="personal_cabinet.html#admin">Повернутись до кабінету</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <p>@ Сайт тролейбусного депо</p>
+        </div>
+    </footer>
+</body>
+</html>
