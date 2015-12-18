@@ -43,14 +43,6 @@
                     formMessage.innerHTML = 'Помилковий пароль';
                     setTimeout(fadeElem,33, formMessage);
                   }
-                } else if (login === 'manager@gmail.com') {
-                  if (password === 'manager') {
-                    location = 'personal_cabinet.html#manager';
-                  } else {
-                    formMessage.style.opacity = '1';
-                    formMessage.innerHTML = 'Помилковий пароль';
-                    setTimeout(fadeElem,33, formMessage);
-                  }
                 } else if (login === 'admin@gmail.com') {
                   if (password === 'admin') {
                     location = 'personal_cabinet.html#admin';
@@ -97,10 +89,13 @@
                 <div class="form-group">
                 <div>Пароль:</div>
                 <input name="password" type="password" placeholder="14262Begs" /> </div>
-                <div id="formMessage" >123 </div><br />
+                <div id="formMessage" >123 </div>
             </form>
             <button id="loginButton" class="btn btn-default"> Увійти </button>
             <a href="register.html"><button class="btn btn-default">Зареєструватись</button></a>
+            <br />
+            <br />
+            <a href="forgotPassword.html">Забули пароль?</a>
         </div>
     </main>
     <footer>
