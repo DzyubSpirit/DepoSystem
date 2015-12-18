@@ -57,11 +57,12 @@ main {
     opacity: 0.98;
 }
 .suggest_login {
+    box-shadow: 0 0 2px black;
     margin: 5px;
     border: 2px solid rgb(50, 50, 100);
     background: rgb(220, 220, 220);
     height: 50px;
-    width: 860px;
+    width: 800px;
     color: black;
     text-align: left;
     font-size: 16px;
@@ -69,10 +70,11 @@ main {
     padding: 10px 50px 10px 50px;
 }
 .main {
+    box-shadow: 0 0 2px black;
     border: 2px solid rgb(50, 50, 100);
     background: rgb(230, 230, 255);
     height: 870px;
-    width: 860px;
+    width: 800px;
     color: black;
     text-align: left;
     font-size: 20px;
@@ -89,7 +91,7 @@ main {
 #map {
     border: 2px solid black;
     margin-top: 10px;
-    width: 860px;
+    width: 800px;
     height: 600px;
     display: inline-block;
 }
