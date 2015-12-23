@@ -27,7 +27,7 @@
                 var password = passwordInput.value;
                 console.log(login);
                 console.log(password);
-                if (login === 'user@gmail.com') {
+                if (login === 'user') {
                   if (password === 'user') {
                     location = 'personal_cabinet.html';
                   } else {
@@ -35,7 +35,7 @@
                     formMessage.innerHTML = 'Помилковий пароль';
                     setTimeout(fadeElem,33, formMessage);
                   }
-                } else if (login === 'driver@gmail.com') {
+                } else if (login === 'driver') {
                   if (password === 'driver') {
                     location = 'personal_cabinet.html#driver';
                   } else {
@@ -43,7 +43,7 @@
                     formMessage.innerHTML = 'Помилковий пароль';
                     setTimeout(fadeElem,33, formMessage);
                   }
-                } else if (login === 'admin@gmail.com') {
+                } else if (login === 'admin') {
                   if (password === 'admin') {
                     location = 'personal_cabinet.html#admin';
                   } else {
@@ -51,7 +51,7 @@
                     formMessage.innerHTML = 'Помилковий пароль';
                     setTimeout(fadeElem,33, formMessage);
                   }
-                } else if (login === 'manager@gmail.com') {
+                } else if (login === 'manager') {
                    if (password === 'manager') {
                      location = 'personal_cabinet.html#manager';
                    } else {
